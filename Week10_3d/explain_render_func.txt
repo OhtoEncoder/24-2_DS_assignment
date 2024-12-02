@@ -1,0 +1,23 @@
+Describe your explanation about below simple rendering functions.
+
+1. barycentric_coords: 
+삼각형 내부의 점을 표현하기 위해 barycentric coordinates를 계산함. 삼각형 꼭짓점에 대한 상대적 가중치를 반환하며, 이 값을 이용해 색상, 텍스처 좌표 또는 법선 벡터를 보간하는 데 사용함.
+2. bounding_box: 
+삼각형을 포함하는 최소한의 직사각형 bounding box를 계산함. 렌더링에서 픽셀 단위로 삼각형 내의 점을 확인하기 위해 사용됨.
+3. scaled_vertices: 
+ 삼각형의 꼭짓점을 화면 크기에 맞춰 스케일링함. 
+4. scaled_texture_vertices: 
+ 텍스처 매핑을 위해 텍스처 좌표를 스케일링함. 일반적으로 텍스처 좌표는 0~1 사이 범위인데, 이를 텍스처 이미지 크기에 맞게 변환함.
+5. normal_vectors: 
+삼각형 또는 표면의 법선 벡터를 계산함. 이 벡터는 조명 계산(예: 램버트 조명 모델 또는 퐁 쉐이딩)에 사용되며, 표면의 방향을 나타냄.
+6. render_line: 
+두 점 사이를 연결하는 직선을 그리는 함수. 일반적으로 브레센험 알고리즘 또는 다른 선형 보간법을 사용하여 픽셀 단위로 직선을 그림.
+7. draw_triangle: 
+화면에 삼각형을 그리는 함수. 픽셀을 채우거나 가장자리만 그릴 수 있음. barycentric coordinates와 bounding box를 사용하여 구현함.
+8. shade_triangle_texture: 
+ 삼각형에 텍스처를 매핑하고 조명을 적용하여 색상을 쉐이딩함. 텍스처 매핑을 위한 텍스처 좌표와 조명 계산을 결합함.
+9. shade_triangle: 
+텍스처 없이 삼각형을 조명에 기반해 쉐이딩함. 기본적인 램버트 또는 퐁 모델을 이용하여 색상, 밝기 등을 계산함.
+
+10. render_shaded: 
+전체 씬을 렌더링하며, 각 삼각형에 조명 모델(텍스처 포함/미포함)을 적용함. 씬의 최종 이미지를 생성하는 렌더링 루프의 핵심 부분임.
